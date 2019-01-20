@@ -71,7 +71,6 @@ print(givenList)
 print("selectionSort of given numbers is",lst.selectionSort())
 print("bubbleSort of given numbers is",lst.bubbleSort())
 print("MergeSort of given numbers is",lst.merge())
-                return temp_lst 
  
                 
 lst = SortingAlgo([54,45,90,67,78,10])
