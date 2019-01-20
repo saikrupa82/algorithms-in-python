@@ -24,21 +24,50 @@ class SortingAlgo:
                     
                     if temp_lst[i] > temp_lst[i+1]:
                         temp_lst[i] , temp_lst[i+1] = temp_lst[i+1] , temp_lst[i]
-                        print(temp_lst)
                         done = False
                 else:
                     break
             if done :
                 return temp_lst   
             
-               
+    def _splitmergesort(self,lst):
+        if len(lst) == 1:
+            return tuple(lst)
+        d=int(len(lst)/2)
+        # spilt = lambda lsts: lsts[:d], lsts[d:]
+        def split(lsts): return lsts[:d], lsts[d:]
+        left, right= split(lst)
+        if len(left) == 1 and len(right) == 1:
+            print(left,right)
+            if left[0]> right[0]:
+                return right[0], left[0]
+            else:
+                return left[0], right[0]
+        return self._splitmergesort(left), self._splitmergesort(right)
+
+    # def _mergeingtheMergeSort(self, tup ):
+    #     temp_lst = list(tup)
+    #     for i in temp_lst:
+    #         if len(list())
+
+
+    def merge(self) :
+        temp_lst = self.lst.copy()
+        # return self._mergeingtheMergeSort(self._splitmergesort(temp_lst)) 
+        return self._splitmergesort(temp_lst)
+        # for i in temp_lst:
+        #     d=int(len(temp_lst)/2)
+        #     spilt = lambda lst: lst[:d],lst[d:]
+        #     left,right=split(temp_lst)
 
 
 
-lst = SortingAlgo([54,45,90,67,78,10])
-print([54,45,90,67,78,10])
+givenList = [54,45,90,67,78,10,46,25, 11,12,15,18,20]
+lst = SortingAlgo(givenList)
+print(givenList)
 print("selectionSort of given numbers is",lst.selectionSort())
 print("bubbleSort of given numbers is",lst.bubbleSort())
+print("MergeSort of given numbers is",lst.merge())
 
 
 
