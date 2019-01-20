@@ -1,9 +1,11 @@
+from timeit import default_timer as timer
 class SortingAlgo:
     def __init__(self,lis):
         assert type(lis)==list,"Please Enter A List"
         self.lst=lis
 
     def selectionSort(self):
+        
         temp_lst = self.lst.copy()
         for i in range (len(self.lst)):
            
@@ -16,6 +18,7 @@ class SortingAlgo:
     
 
     def bubbleSort(self):
+
         temp_lst = self.lst.copy()
         while True:
             done = True
@@ -29,16 +32,19 @@ class SortingAlgo:
                 else:
                     break
             if done :
-                return temp_lst   
-            
-               
-
-
-
+                return temp_lst 
+ 
+                
 lst = SortingAlgo([54,45,90,67,78,10])
 print([54,45,90,67,78,10])
-print("selectionSort of given numbers is",lst.selectionSort())
-print("bubbleSort of given numbers is",lst.bubbleSort())
+
+start_time = timer()
+print("selectionSort of given numbers is", lst.selectionSort())
+print("Selection Sort took " + str(timer() - start_time) )
+
+start_time = timer()
+print("bubbleSort of given numbers is", lst.bubbleSort())
+print("Bubble Sort took " + str(timer() - start_time) )
 
 
 
